@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Menu {
+public class Menu implements ActionListener{
   private JFrame frame;
   private JPanel panel;
   private JButton playButton;
@@ -13,7 +13,9 @@ public class Menu {
     frame = new JFrame("Flood Escape");
     panel = new JPanel();
     playButton = new JButton("Play");
+    playButton.addActionListener(this);
     exitButton = new JButton("Exit");
+    exitButton.addActionListener(this);
     backgroundImage = Toolkit.getDefaultToolkit().getImage("bruh.png");
 
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -24,6 +26,13 @@ public class Menu {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(400, 400);
     frame.setVisible(true);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    if(e.getSource() == playButton)
+      // runGame();
+    else if(e.getSource() == exitButton)
+      frame.dispose();
   }
 
   public void render(Graphics g) {
