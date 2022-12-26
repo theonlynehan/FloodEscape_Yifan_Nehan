@@ -2,13 +2,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Water {
-  private int x; 
-  private int y; 
-  private int width; 
-  private int height; 
-  private int speed; 
+  private int x;
+  private int y;
+  private int width;
+  private int height;
+  private int speed;
   private Color color;
-  private boolean isStopped; 
+  private boolean isStopped;
 
   public Water() {
     this.x = 0;
@@ -20,8 +20,10 @@ public class Water {
     this.isStopped = false;
   }
 
-  public void rise() {
-	y -= speed;
+  public void update() {
+    if (!isStopped) {
+      y -= speed;
+    }
   }
 
   public void render(Graphics g) {
