@@ -1,39 +1,41 @@
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Random;
 import java.awt.Graphics;
 
+// okay let me send u what i got in discord this is confusing
 
 public class Map {
-  private ArrayList<Platform> platforms;
-  private Button button;
-  private Random random;
+  private ArrayList<Obj> platforms;
+  private ArrayList<Button> buttons;
+  private Water water;
+  private Exit exit;
 
-  public Map(Button button) {
-    this.button = button;
-    this.platforms = new ArrayList<>();
-    this.random = new Random();
-    loadPlatforms();
+  public Map(Water water, Exit exit) {
+    this.water = water;
+    this.exit = exit;
   }
-
-  private void loadPlatforms() {
-    for (int i = 0; i < 10; i++) {
-      int x = random.nextInt(400); 
-      int y = 50 * i; 
-      int width = 100; 
-      int height = 10; 
-      platforms.add(new Platform(x, y, width, height));
+  public void addPlatform(Obj platform){
+    this.platforms.add(platform);
+  }
+  public void addButton(Button button){
+    buttons.add(button);
+  }
+  private void load() {
+    for (int i = 0; i < platforms.size(); i++) {
+      //draw(platforms.get(i))
     }
-
-    Platform lastPlatform = platforms.get(platforms.size() - 1);
-    button.setBounds(lastPlatform.getX(), lastPlatform.getY(),       lastPlatform.getWidth(), lastPlatform.getHeight());
-  }
-
-  public void render(Graphics g) {
-    for (Platform platform : platforms) {
-      platform.render(g);
+    for (int i = 0; i < buttons.size(); i++) {
+      //draw(buttons.get(i))
     }
-
-    button.render(g);
+    //draw(this.exit);
+    //draw(this.water);
   }
+
+  public void moveMap(int x, int y){
+    // Create a following camera effect for the player, making the map move around when the player moves
+  }
+
 }
+
+    // we just need to make sure each individual class and obj works
+    // then everything will be a lot easier
