@@ -20,6 +20,10 @@ public class Water {
     this.isStopped = false;
   }
 
+  public int getHeight(){
+    return this.height;
+  }
+
   public void update() {
     if (!isStopped) {
       y -= speed;
@@ -31,7 +35,7 @@ public class Water {
     g.fillRect(x, y, width, height);
   }
 
-  public void stopWater() {
-    isStopped = true;
+  public void toggle() {
+    isStopped = !isStopped;
   }
 }
