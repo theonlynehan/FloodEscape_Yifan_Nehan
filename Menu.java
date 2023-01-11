@@ -2,8 +2,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Menu implements ActionListener{
-  private JFrame frame;
+public class Menu implements ActionListener {
+  private JFrame frame; // this is not good
   private JPanel panel;
   private JButton playButton;
   private JButton exitButton;
@@ -29,14 +29,18 @@ public class Menu implements ActionListener{
   }
 
   public void actionPerformed(ActionEvent e) {
-    if(e.getSource() == playButton)
-      // runGame();
-    else if(e.getSource() == exitButton)
+    if (e.getSource() == playButton)
+      runGame();
+    else if (e.getSource() == exitButton)
       frame.dispose();
   }
 
   public void render(Graphics g) {
     g.drawImage(backgroundImage, 0, 0, null);
     panel.paintComponents(g);
+  }
+
+  public JFrame getFrame() {
+    return this.frame;
   }
 }
